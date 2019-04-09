@@ -1,18 +1,30 @@
 <% include partials/header %>
 
-<h1> This is a Campgrounds Page </h1>
-
-<a href="/">Back</a>
-<a href="/campgrounds/new">Create a new Camp</a>
+<header class="jumbotron text-center">
+    <h1 class="display-4">Welcome to YelpCamp!</h1>
+    <p class="lead">View information about the Best Campgroundss from around the world or add new one.</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Create a new Campground!</a>
+    </p>
+</header>
 
 <div class="container">
-    <div class="row">
-        <% campgrounds.forEach((camp) => { %>
-            <div class="col-md-4">
-                <img width="100%" src="<%= camp.img %>">
-                <h4><%= camp.name %></h4>
-            </div>
-        <% }); %>
+    <div class="card-deck">
+        <div class="row">
+            <% campgrounds.forEach((camp) => { %>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card mx-0 mb-4">
+                        <img width="100%" src="<%= camp.img %>" style="max-height: 250px">                         
+                    <div class="card-body">
+                        <h4 class="card-title"><%= camp.name %></h4>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
     </div>
 </div>
-<% include partials/footer %>
